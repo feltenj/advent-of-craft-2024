@@ -33,6 +33,34 @@ class EncryptionTest : StringSpec({
             ) shouldBe plainText
         }
     }
+
+    "should decrypt a string" {
+        encryption
+            .decrypt(loadFile("EncryptedEmail.txt"))
+            .shouldBe("Dear consultant,\n" +
+                    "\n" +
+                    "We are facing an unprecedented challenge in Christmas Town.\n" +
+                    "\n" +
+                    "The systems that keep our magical operations running smoothly are outdated, fragile, and in dire need of modernization. \n" +
+                    "We urgently require your expertise to ensure Christmas happens this year.\n" +
+                    "Our town is located within a mountain circlet at the North Pole, surrounded by high peaks and protected by an advanced communication and shield system to hide it from the outside world.\n" +
+                    "\n" +
+                    "You have been selected for your exceptional skills and dedication. \n" +
+                    "Please report to the North Pole immediately. \n" +
+                    "\n" +
+                    "Enclosed are your travel details and a non-disclosure agreement that you must sign upon arrival.\n" +
+                    "Our dwarf friends from the security will receive and escort you in as soon as you check security.\n" +
+                    "In the following days, you will receive bracelets to be able to pass through the magic shield.\n" +
+                    "\n" +
+                    "Time is of the essence.\n" +
+                    "You must arrive before the beginning of December to be able to acclimate yourself with all the systems.\n" +
+                    "\n" +
+                    "We are counting on you to help save Christmas.\n" +
+                    "\n" +
+                    "Sincerely,\n" +
+                    "\n" +
+                    "Santa Claus \uD83C\uDF85")
+    }
 })
 
 private fun convertKey(key: String): String {
